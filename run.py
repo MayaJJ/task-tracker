@@ -93,7 +93,7 @@ class TaskTracker:
 
 def main():
 
-    "  Main function to run the Task Tracker program."
+      "Main function to run the Task Tracker program."
     
     tracker = TaskTracker()
     tracker.load_tasks_from_file("tasks.json")
