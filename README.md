@@ -2,31 +2,57 @@
 
 Welcome,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+# Task Tracker
 
-## Reminders
+## Project Description
+Task Tracker is a command-line application that allows you to manage and track your tasks. It provides functionality to add new tasks, view existing tasks, update task details, and mark tasks as complete. The purpose of this project is to provide a simple and efficient way to keep track of your tasks and their due dates.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Installation Instructions
+To run the Task Tracker application, please ensure you have the following dependencies installed:
 
-## Creating the Heroku app
+- Python 3
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+Follow these steps to install and set up the application:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+1. Clone this repository to your local machine.
+2. Open a terminal or command prompt and navigate to the project directory.
+3. Install the required dependencies by running the following command:
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+pip install -r requirements.txt
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+## Usage Instructions
+To use the Task Tracker application, follow the instructions below:
 
-## Constraints
+1. Open a terminal or command prompt and navigate to the project directory.
+2. Run the following command to add a new task:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+python3 run.py -a "Task description" "Due date (YYYY-MM-DD)"      
 
----
+This will add a new task with the provided description and due date.
 
-Happy coding!
+3. Run the following command to view the list of tasks:
+
+python3 run.py -v
+
+This will display all the tasks along with their descriptions, due dates, and completion status.
+
+4. Run the following command to update a task:
+
+python3 run.py -u task_index "New task description" "New due date (YYYY-MM-DD)"
+
+Replace `task_index` with the index of the task you want to update. This command will update the task with the provided index to the new description and due date.
+
+5. Run the following command to mark a task as complete:
+
+python3 run.py -c task_index
+
+Replace `task_index` with the index of the task you want to mark as complete. This will mark the task as complete.
+
+## Additional Features
+There are no additional features implemented beyond the basic requirements at this time.
+
+## Known Issues or Limitations
+There are no known issues or limitations in the Task Tracker application.
+
+Feel free to reach out if you have any questions or need further assistance.
