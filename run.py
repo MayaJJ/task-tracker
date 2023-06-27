@@ -67,6 +67,8 @@ class TaskTracker:
         except FileNotFoundError:
             pass
 
+        data_str = input("Enter your data here:\n")
+
 def main():
     tracker = TaskTracker()
     tracker.load_tasks_from_file("tasks.json")
