@@ -17,9 +17,11 @@ class Task:
         self.description = description
         self.due_date = due_date
         self.completed = False
-def mark_complete(self):
+
+    def mark_complete(self):
         """Mark the task as completed."""
         self.completed = True
+
 
 class TaskTracker:
     """Class representing a task tracker application."""
@@ -102,7 +104,8 @@ class TaskTracker:
             print("Task marked as complete.")
         else:
             print("Invalid task index.")
-def delete_task(self, index):
+
+    def delete_task(self, index):
         """
         Delete a task from the task tracker.
 
@@ -162,7 +165,8 @@ def delete_task(self, index):
             for index, task in enumerate(incomplete_tasks):
                 print(f"[{index}] Description: {task.description}")
                 print(f"Due Date: {task.due_date}")
- def display_overdue_tasks(self):
+
+    def display_overdue_tasks(self):
         """View overdue tasks in the task tracker."""
         today = datetime.now().date()
         overdue_tasks = [task for task in self.tasks if isOverdue(task, today)]
@@ -180,6 +184,7 @@ def delete_task(self, index):
 
 def isOverdue(task, today):
     return not task.completed and datetime.strptime(task.due_date, '%Y-%m-%d').date() < today
+
 
 def main():
     parser = argparse.ArgumentParser(description="Task Tracker Application")
@@ -262,6 +267,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
