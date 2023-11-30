@@ -181,6 +181,87 @@ def delete_task(self, index):
 def isOverdue(task, today):
     return not task.completed and datetime.strptime(task.due_date, '%Y-%m-%d').date() < today
 
+def main():
+    parser = argparse.ArgumentParser(description="Task Tracker Application")
+
+    # Argument for adding a task
+    parser.add_argument("-a", "--add", nargs=2, metavar=("description", "due_date"), help="Add a new task")
+
+    # Argument for viewing all tasks
+    parser.add_argument("-va", "--view_all", action="store_true", help="View all tasks")
+
+    # Argument for updating a task
+    parser.add_argument("-u", "--update", nargs=3, metavar=("index", "description", "due_date"), help="Update a task")
+
+    # Argument for deleting a task
+    parser.add_argument("-d", "--delete", type=int, metavar="index", help="Delete a task")
+
+    # Argument for marking a task as complete
+    parser.add_argument("-c", "--complete", type=int, metavar="index", help="Mark a task as complete")
+
+    # Argument for viewing incomplete tasks
+    parser.add_argument("-vi", "--view_incomplete", action="store_true", help="View incomplete tasks")
+
+    # Argument for viewing overdue tasks
+    parser.add_argument("-vo", "--view_overdue", action="store_true", help="View overdue tasks")
+
+    # Argument for sorting tasks by due date
+    parser.add_argument("-s", "--sort", action="store_true", help="Sort tasks by due date")
+
+    # args = parser.parse_args()
+
+    task_tracker = TaskTracker()
+
+    # Load tasks from a file if available
+    task_tracker.load_tasks_from_file("tasks.json")
+
+    while True:
+        print("\nOptions:")
+        print("1. Add a new task")
+        print("2. View all tasks")
+        print("3. Update a task")
+        print("4. Delete a task")
+        print("5. Mark a task as complete")
+        print("6. View incomplete tasks")
+        print("7. View overdue tasks")
+        print("8. Sort tasks by due date")
+        print("9. Exit")
+
+        choice = input("Enter the number of the option you'd like to choose: ")
+
+        if choice == "1":
+            description = input("Enter the description of the task: ")
+            due_date = input("Enter the due date (YYYY-MM-DD) of the task: ")
+            task_tracker.add_task(description, due_date)
+        elif choice == "2":
+            task_tracker.display_tasks()
+        elif choice == "3":
+            index = int(input("Enter the index of the task to update: "))
+            description = input("Enter the updated description: ")
+            due_date = input("Enter the updated due date (YYYY-MM-DD): ")
+            task_tracker.update_task(index, description, due_date)
+        elif choice == "4":
+            index = int(input("Enter the index of the task to delete: "))
+            task_tracker.delete_task(index)
+        elif choice == "5":
+            index = int(input("Enter the index of the task to mark as complete: "))
+            task_tracker.mark_task_complete(index)
+        elif choice == "6":
+            task_tracker.display_incomplete_tasks()
+        elif choice == "7":
+            task_tracker.display_overdue_tasks()
+        elif choice == "8":
+            task_tracker.sort_tasks_by_due_date()
+        elif choice == "9":
+            task_tracker.save_tasks_to_file("tasks.json")
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please choose a valid option.")
+
+
+if __name__ == "__main__":
+    main()
 
 
 
