@@ -102,7 +102,52 @@ class TaskTracker:
             print("Task marked as complete.")
         else:
             print("Invalid task index.")
+def delete_task(self, index):
+        """
+        Delete a task from the task tracker.
 
+        Args:
+            index (int): Index of the task to delete.
+        """
+        if 0 <= index < len(self.tasks):
+            del self.tasks[index]
+            print("Task deleted successfully.")
+        else:
+            print("Invalid task index.")
+
+    def save_tasks_to_file(self, filename):
+        """
+        Save the tasks in the task tracker to a JSON file.
+
+        Args:
+            filename (str): Name of the file to save the tasks.
+        """
+        with open(filename, "w") as file:
+            tasks_data = []
+            for task in self.tasks:
+                task_data = {
+                    "description": task.description,
+                    "due_date": task.due_date,
+                    "completed": task.completed
+                }
+                tasks_data.append(task_data)
+            json.dump(tasks_data, file)
+
+    def load_tasks_from_file(self, filename):
+        """
+        Load tasks from a JSON file into the task tracker.
+
+        Args:
+            filename (str): Name of the file to load the tasks from.
+        """
+        try:
+            with open(filename, "r") as file:
+                tasks_data = json.load(file)
+                for task_data in tasks_data:
+                    task = Task(
+                        task_data["description"],
+                        task_data["due_date"]
+                    )
 
 
 
