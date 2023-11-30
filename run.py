@@ -148,6 +148,21 @@ def delete_task(self, index):
                         task_data["description"],
                         task_data["due_date"]
                     )
+                    task.completed = task_data["completed"]
+                    self.tasks.append(task)
+        except FileNotFoundError:
+            print("File not found hence it has been created.")
+
+    def display_incomplete_tasks(self):
+        """View incomplete tasks in the task tracker."""
+        incomplete_tasks = [task for task in self.tasks if not task.completed]
+        if not incomplete_tasks:
+            print("No incomplete tasks found.")
+        else:
+            for index, task in enumerate(incomplete_tasks):
+                print(f"[{index}] Description: {task.description}")
+                print(f"Due Date: {task.due_date}")
+
 
 
 
