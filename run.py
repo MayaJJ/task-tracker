@@ -162,6 +162,25 @@ def delete_task(self, index):
             for index, task in enumerate(incomplete_tasks):
                 print(f"[{index}] Description: {task.description}")
                 print(f"Due Date: {task.due_date}")
+ def display_overdue_tasks(self):
+        """View overdue tasks in the task tracker."""
+        today = datetime.now().date()
+        overdue_tasks = [task for task in self.tasks if isOverdue(task, today)]
+        if not overdue_tasks:
+            print("No overdue tasks found.")
+        else:
+            for index, task in enumerate(overdue_tasks):
+                print(f"[{index}] Description: {task.description} | Due Date: {task.due_date}")
+
+    def sort_tasks_by_due_date(self):
+        """Sort tasks by due date."""
+        self.tasks.sort(key=lambda task: datetime.strptime(task.due_date, '%Y-%m-%d'))
+        print("Tasks sorted by due date.")
+
+
+def isOverdue(task, today):
+    return not task.completed and datetime.strptime(task.due_date, '%Y-%m-%d').date() < today
+
 
 
 
