@@ -17,6 +17,10 @@ class Task:
         self.description = description
         self.due_date = due_date
         self.completed = False
+def mark_complete(self):
+        """Mark the task as completed."""
+        self.completed = True
+
 
 
 
