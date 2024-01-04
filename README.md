@@ -7,7 +7,7 @@ Welcome,
 ## Project Description
 Task Tracker is a command-line application that allows you to manage and track your tasks in Code Institute mock terminal. The app provides functionality to add new tasks, view existing tasks, update task details, and mark tasks as complete. The purpose of this project is to provide a simple and efficient way to keep track of your tasks and their due dates.
 
-Here is the live version of my project
+![image](/workspace/task-tracker/IMG_7277.jpg) 
 
 ## Usage Instructions
 
