@@ -73,7 +73,7 @@ Steps for deployment:
 ## Credits
 
 - Code Institute for the deployment terminal
-- Check name of Youtube channel
+- ![Tiff in Tech](https://www.youtube.com/watch?v=LXsdt6RMNfY&t=29s)
 
 Feel free to reach out if you have any questions or need further assistance.
 
